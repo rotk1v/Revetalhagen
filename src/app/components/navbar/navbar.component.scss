@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: 0.2fr auto;
+}
+
+.logo {
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}

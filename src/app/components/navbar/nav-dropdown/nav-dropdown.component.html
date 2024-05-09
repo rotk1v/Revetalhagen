@@ -1,0 +1,16 @@
+<button #anchor (click)="toggleAnchor()" class="anchor">
+  {{ mainButton.name }}
+</button>
+
+<div
+  [anchor]="anchor"
+  (rhClickOutside)="toggleAnchor()"
+  *ngIf="active"
+  class="dropdown"
+>
+  @for (link of links; track $index) {
+  <button (click)="navigate(link.target)">
+    {{ link.name }}
+  </button>
+  }
+</div>

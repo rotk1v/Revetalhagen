@@ -1,12 +1,14 @@
-<button #anchor (click)="toggleAnchor()" class="anchor">
-  {{ mainButton.title }}
-</button>
+<rh-dropdown-anchor-button
+  class="anchor"
+  [mainButton]="mainButton"
+  (anchorClicked)="toggleAnchor()"
+/>
 
 <div
-  [anchor]="anchor"
-  (rhClickOutside)="toggleAnchor()"
   *ngIf="active"
   class="dropdown"
+  (clickOutside)="toggleAnchor()"
+  [clickOutsideExclude]="'.anchor'"
 >
   @for (link of links; track $index) {
   <button (click)="navigate(link.target)">

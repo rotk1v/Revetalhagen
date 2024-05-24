@@ -1,5 +1,5 @@
 export * from "./navLink";
-export * from "./navLinkAnchor";
+export * from "./nav-link-anchor";
 export * from "./frontpage";
 export * from "./image";
 export * from "./section";

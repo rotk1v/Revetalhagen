@@ -1,10 +1,13 @@
-<div class="main">
-  <rh-navbar />
-  <main class="content" style="display: flex; flex-direction: column">
-    <pre>{{ test?.images | json }}</pre>
-    <pre>{{ test?.sections | json }}</pre>
-    <!-- <pre>{{ test | json }}</pre> -->
-  </main>
-</div>
-
-<router-outlet />
+<rh-navbar />
+<main class="content" style="display: flex; flex-direction: column">
+  <!-- <pre>{{ test?.images | json }}</pre>
+    @for (image of test?.images?.images; track $index) {
+    <img
+      src="{{ imageUrl(image.asset).width(200).url() }}"
+      alt="{{ image.caption }}"
+    />
+    }
+    <pre>{{ test?.sections | json }}</pre> -->
+  <!-- <pre>{{ test | json }}</pre> -->
+  <router-outlet />
+</main>

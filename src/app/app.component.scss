@@ -9,15 +9,9 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100%;
-}
 
-.main {
-  width: 100%;
-  min-height: 100%;
   display: grid;
   grid-template-rows: min-content auto;
-  // align-items: center;
   padding: 1rem 5rem;
   box-sizing: inherit;
   position: relative;

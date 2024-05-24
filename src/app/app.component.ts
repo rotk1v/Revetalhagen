@@ -4,6 +4,8 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { SanityService } from "./services/sanity.service";
 import { CommonModule } from "@angular/common";
 import { FrontPage } from "./models/frontpage";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { ImageUrlBuilder } from "@sanity/image-url/lib/types/builder";
 
 @Component({
   selector: "app-root",
@@ -19,7 +21,11 @@ export class AppComponent implements OnInit {
   constructor(private sanityService: SanityService) {}
 
   async ngOnInit(): Promise<void> {
-    const temp = await this.sanityService.getFrontPage();
-    this.test = temp[0];
+    // const temp = await this.sanityService.getFrontPage();
+    // this.test = temp[0];
+  }
+
+  imageUrl(source: SanityImageSource): ImageUrlBuilder {
+    return this.sanityService.urlFor(source);
   }
 }

@@ -1,0 +1,16 @@
+@for (event of eventsObj | async; track $index) {
+<div>
+  <h2>{{ event.title }}</h2>
+  <p>(Internal expiration value: {{ formatDate(event.expiresAt) }})</p>
+  <p>
+    Opprettet: {{ formatDate(event.createdAt) }} - Sist oppdatert:
+    {{ formatDate(event.updatedAt) }}
+  </p>
+  <p>
+    @for (content of event.content; track $index) { @for (text of content.text;
+    track $index) {
+    {{ formatText(text, event.markDefinitions) }}
+    }}
+  </p>
+</div>
+}

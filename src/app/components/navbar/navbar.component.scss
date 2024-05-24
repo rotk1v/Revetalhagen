@@ -1,0 +1,21 @@
+@import "../../../styles.scss";
+
+:host {
+  display: block;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: 0.2fr auto;
+}
+
+.logo {
+  font-size: $font-xxl;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}

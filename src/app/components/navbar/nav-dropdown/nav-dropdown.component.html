@@ -3,15 +3,15 @@
   (anchorClicked)="toggleAnchor()"
 />
 
-<div
+<rh-column
   *ngIf="active"
   class="dropdown"
-  (clickOutside)="toggleAnchor()"
-  [clickOutsideExclude]="'.anchor'"
+  (clickOutside)="active = false"
+  [delayClickOutsideInit]="true"
 >
   @for (link of links; track $index) {
-  <button (click)="navigate(link.target)">
+  <button type="button" class="dropdown-button" (click)="navigate(link.target)">
     {{ link.name }}
   </button>
   }
-</div>
+</rh-column>

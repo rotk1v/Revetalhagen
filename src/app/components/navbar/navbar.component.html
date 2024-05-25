@@ -1,20 +1,19 @@
 <nav class="nav">
   <span (click)="navigateToFrontpage()" class="logo">Revetalhagen</span>
-  <rh-row>
-    <div class="nav-links">
-      <rh-nav-dropdown
-        [mainButton]="links.Activities.anchor"
-        [links]="links.Activities.dropdownLinks"
-      />
-      <rh-nav-dropdown
-        [mainButton]="links.Garden.anchor"
-        [links]="links.Garden.dropdownLinks"
-      />
-      <rh-nav-dropdown
-        [mainButton]="links.About.anchor"
-        [links]="links.About.dropdownLinks"
-      />
-      <rh-nav-dropdown [mainButton]="links.Contact.anchor" />
-    </div>
+
+  <rh-row [options]="{ align: 'center' }">
+    <rh-nav-dropdown
+      [mainButton]="links.Activities.anchor"
+      [links]="links.Activities.dropdownLinks"
+    />
+    <rh-nav-dropdown
+      [mainButton]="links.Garden.anchor"
+      [links]="links.Garden.dropdownLinks"
+    />
+    <rh-nav-dropdown
+      [mainButton]="links.About.anchor"
+      [links]="links.About.dropdownLinks"
+    />
+    <rh-nav-dropdown [mainButton]="links.Contact.anchor" />
   </rh-row>
 </nav>

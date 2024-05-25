@@ -17,10 +17,13 @@ import { NavLinkAnchor } from "../../../../models";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropdownAnchorButtonComponent {
+  dropdownOpen = false;
+
   @Input({ required: true }) mainButton!: NavLinkAnchor;
   @Output() anchorClicked = new EventEmitter<void>();
 
   clicked(): void {
+    this.dropdownOpen = !this.dropdownOpen;
     this.anchorClicked.emit();
   }
 }

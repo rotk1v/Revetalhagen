@@ -9,9 +9,10 @@ import { NavLink, NavLinkAnchor } from "../../../models";
 import { Router } from "@angular/router";
 import { DropdownAnchorButtonComponent } from "./dropdown-anchor-button/dropdown-anchor-button.component";
 import {
+  NgClickOutsideDelayOutsideDirective,
   NgClickOutsideDirective,
-  NgClickOutsideExcludeDirective,
 } from "ng-click-outside2";
+import { ColumnComponent } from "../../../shared/components/structural/column/column.component";
 
 @Component({
   selector: "rh-nav-dropdown",
@@ -19,8 +20,9 @@ import {
   imports: [
     CommonModule,
     DropdownAnchorButtonComponent,
+    ColumnComponent,
     NgClickOutsideDirective,
-    NgClickOutsideExcludeDirective,
+    NgClickOutsideDelayOutsideDirective,
   ],
   templateUrl: "./nav-dropdown.component.html",
   styleUrl: "./nav-dropdown.component.scss",

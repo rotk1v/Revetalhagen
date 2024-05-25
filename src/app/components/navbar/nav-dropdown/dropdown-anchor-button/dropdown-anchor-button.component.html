@@ -1,3 +1,8 @@
-<button type="button" (click)="clicked()" class="anchor">
+<button
+  type="button"
+  [id]="mainButton.title"
+  (click)="clicked()"
+  class="anchor"
+>
   {{ mainButton.title }}
 </button>

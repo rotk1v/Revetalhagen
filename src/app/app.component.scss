@@ -16,3 +16,8 @@
   box-sizing: inherit;
   position: relative;
 }
+
+.content {
+  display: flex;
+  flex-direction: column;
+}

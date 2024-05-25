@@ -5,15 +5,23 @@ import {
   Input,
   inject,
 } from "@angular/core";
-import { ClickOutsideDirective } from "../../../directives/click-outside.directive";
-import { MouseoverOutsideDirective } from "../../../directives/mouseover-outside.directive";
 import { NavLink, NavLinkAnchor } from "../../../models";
 import { Router } from "@angular/router";
+import { DropdownAnchorButtonComponent } from "./dropdown-anchor-button/dropdown-anchor-button.component";
+import {
+  NgClickOutsideDirective,
+  NgClickOutsideExcludeDirective,
+} from "ng-click-outside2";
 
 @Component({
   selector: "rh-nav-dropdown",
   standalone: true,
-  imports: [ClickOutsideDirective, MouseoverOutsideDirective, CommonModule],
+  imports: [
+    CommonModule,
+    DropdownAnchorButtonComponent,
+    NgClickOutsideDirective,
+    NgClickOutsideExcludeDirective,
+  ],
   templateUrl: "./nav-dropdown.component.html",
   styleUrl: "./nav-dropdown.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,

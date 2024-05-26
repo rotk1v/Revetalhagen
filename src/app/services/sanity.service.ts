@@ -4,8 +4,8 @@ import imageUrlBuilder from "@sanity/image-url";
 import { FrontPage } from "../models/frontpage";
 import { ImageUrlBuilder } from "@sanity/image-url/lib/types/builder";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import { Observable, defer } from "rxjs";
-import { Event } from "../models";
+import { Observable, defer, filter, map } from "rxjs";
+import { Event, Image, Section } from "../models";
 
 @Injectable({
   providedIn: "root",
@@ -22,20 +22,28 @@ export class SanityService {
     }),
   };
 
-  urlFor(source: SanityImageSource): ImageUrlBuilder {
+  imgUrlFor(source: SanityImageSource): ImageUrlBuilder {
     return imageUrlBuilder(this.sanityClientCredentials.option).image(source);
   }
 
-  getFrontPage(): Observable<FrontPage[]> {
+  getFrontPageImages(): Observable<Image[]> {
     return defer(() =>
       this.sanityClientCredentials.option.fetch(
         `*[_type == "frontPage"]{
-        title,
-        'images': images.images[]{caption,asset},
+        'images': images.images[]{caption,asset}
+      }`
+      )
+    ).pipe(map((x) => x[0].images));
+  }
+
+  getFrontPageSections(): Observable<Section[]> {
+    return defer(() =>
+      this.sanityClientCredentials.option.fetch(
+        `*[_type == "frontPage"]{
         'sections': sections[]{title,content}
       }`
       )
-    );
+    ).pipe(map((x) => x[0].sections));
   }
 
   getEvents(): Observable<Event[]> {
@@ -51,5 +59,11 @@ export class SanityService {
       }`
       )
     );
+  }
+
+  getSectionContent(section: Section): string {
+    return section.content
+      .flatMap((x) => x.children?.map((t) => t.text))
+      .join("");
   }
 }

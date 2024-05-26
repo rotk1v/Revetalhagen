@@ -1,1 +1,19 @@
-<p>frontpage works!</p>
+<rh-row [options]="{ wrap: 'nowrap', gap: '5rem' }">
+  <rh-column>
+    @for (section of sections$ | async ; track $index) {
+    <section>
+      <h2>{{ section.title }}</h2>
+      <p>{{ getContentText(section) }}</p>
+    </section>
+    }
+  </rh-column>
+  <rh-column>
+    <rh-image-slider [images]="images$ | async" />
+  </rh-column>
+</rh-row>
+
+<!-- @for (img of images$ | async; track $index) {
+<img [src]="getImageUrl(img)" />
+} @for (section of sections$ | async; track $index) {
+<span>{{ section.title }}</span>
+} -->

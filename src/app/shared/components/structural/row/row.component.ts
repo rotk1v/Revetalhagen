@@ -10,6 +10,7 @@ export interface RowOptions {
   justify?: "space-between" | "center" | "flex-start";
   align?: "space-between" | "center" | "flex-start";
   gap?: string;
+  wrap?: "wrap" | "nowrap";
 }
 
 @Component({
@@ -24,6 +25,7 @@ export class RowComponent {
   private defaults: RowOptions = {
     justify: "space-between",
     align: "flex-start",
+    wrap: "wrap",
   };
 
   @Input() options?: RowOptions;
@@ -34,5 +36,13 @@ export class RowComponent {
 
   @HostBinding("style.align-items") get alignStyle(): string {
     return this.options?.align ?? this.defaults.align!;
+  }
+
+  @HostBinding("style.flex-wrap") get wrapStyle(): string {
+    return this.options?.wrap ?? this.defaults.wrap!;
+  }
+
+  @HostBinding("style.gap") get gapStyle(): string | undefined {
+    return this.options?.gap;
   }
 }

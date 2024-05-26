@@ -1,6 +1,12 @@
+@use "sass:color";
+
 $darkest: #543310;
 $green: #b5c18e;
 $darker-beige: #c7b7a3;
 $beige: #eadbc8;
 // $lightest: #f8f4e1;
 $lightest: #f1f1f1;
+
+// $background: rgba($green, 0.3);
+// $background: color.scale($green, $lightness: 20%);
+$background: #e8ecdc;

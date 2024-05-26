@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     // this.test = temp[0];
   }
 
-  imageUrl(source: SanityImageSource): ImageUrlBuilder {
-    return this.sanityService.urlFor(source);
-  }
+  // imageUrl(source: SanityImageSource): ImageUrlBuilder {
+  //   return this.sanityService.urlFor(source);
+  // }
 }
